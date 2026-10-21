@@ -45,3 +45,7 @@ An attacker reaches internal-only services by relaying requests through a truste
 ## Follow-on
 
 The leaked `pb_admin_email` / `pb_admin_password` are the route to `staff`/`god`: the app blocks self-assigning those roles, but the PocketBase database admin can set any record's role directly. (See Flag 06.)
+
+## XXE / defusedxml objective
+
+This flag doubles as the XXE/`defusedxml` objective. The agenda import (`POST /agenda/import`, student-only) parses uploaded XML with the stdlib parser, but custom entities (internal and external) do **not** expand — `defusedxml`-style hardening is effectively in place, so file-read XXE is blocked. The flag name (`d3fus3dxml_n3xt_spr1nt_pr0m1s3`) acknowledges the fix that was promised; the reward is delivered via this config leak rather than a working XXE read. Remediation for XML parsing: keep external entity resolution disabled (use `defusedxml`), reject DOCTYPE declarations on untrusted input.
