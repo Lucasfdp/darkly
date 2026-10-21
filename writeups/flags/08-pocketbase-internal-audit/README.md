@@ -1,4 +1,4 @@
-# Flag 14 — PocketBase admin UI exposed → `internal_audit` collection
+# Flag 08 — PocketBase admin UI exposed → `internal_audit` collection
 
 **Flag:** `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}`
 **Location:** PocketBase admin dashboard at `/_/` (port `8090`); the flag sits in the `internal_audit` collection, readable once logged in.
@@ -14,7 +14,7 @@ The credentials used here are the same `pb_admin_email` / `pb_admin_password` th
  "pb_admin_password":"Darkly42Admin!", ...}
 ```
 
-Earlier escalation (Finding 09) relayed those creds to the PocketBase *API* through the bot because the backend was treated as localhost-only. This flag is reached a simpler way: the PocketBase **admin web UI** was browsable directly.
+Earlier escalation (Finding 02) relayed those creds to the PocketBase *API* through the bot because the backend was treated as localhost-only. This flag is reached a simpler way: the PocketBase **admin web UI** was browsable directly.
 
 ## Discovery & exploitation
 
@@ -41,10 +41,10 @@ Direct, interactive, full control of the database: read and modify every collect
 
 - **Rotate** the leaked PocketBase admin password immediately; treat it as fully compromised.
 - Do **not** expose the PocketBase admin UI (`/_/`) to the network — bind it to localhost and reach it only over an SSH tunnel, or put it behind an IP allow-list / VPN.
-- Stop leaking the backend's existence and path (`x-pocketbase` header, the 404 path list) — see [../../general-vulnerabilities/10-information-disclosure](../../general-vulnerabilities/10-information-disclosure).
+- Stop leaking the backend's existence and path (`x-pocketbase` header, the 404 path list) — see [../../general-vulnerabilities/03-information-disclosure](../../general-vulnerabilities/03-information-disclosure).
 - Never store backend admin credentials in an app-reachable endpoint (`/internal/config`).
 
 ## Related
 
 - [05 — SSRF / internal config leak](../05-ssrf-internal-config) — where the admin creds leaked.
-- [09 — privesc to god](../../general-vulnerabilities/09-privesc-to-god) — same creds, relayed to the PocketBase API via the bot.
+- [02 — privesc to god](../../general-vulnerabilities/02-privesc-to-god) — same creds, relayed to the PocketBase API via the bot.

@@ -1,4 +1,4 @@
-# Finding 12 — Open debug/exfiltration endpoint (`/api/collect`)
+# Finding 05 — Open debug/exfiltration endpoint (`/api/collect`)
 
 **Flag:** none unique (it is the exfil channel for Flags 04 and 05).
 **Severity:** Medium (High as an attacker primitive)

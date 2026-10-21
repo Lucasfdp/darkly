@@ -1,4 +1,4 @@
-# Finding 09 — Full privilege escalation to `god` (leaked admin creds → PocketBase)
+# Finding 02 — Full privilege escalation to `god` (leaked admin creds → PocketBase)
 
 **Flag:** none unique (reaching god re-exposes existing flags rather than a new string).
 **Severity:** Critical

@@ -2,12 +2,12 @@
 
 Web-pentest of the 42 "Darkly" platform (FastAPI + PocketBase rebuild). Each folder documents one issue: discovery, exploitation, impact, and remediation. Target IP is written as `TARGET`.
 
-Write-ups are split into two groups:
+Write-ups are split into two groups, **each numbered independently from 01**:
 
 - **`flags/`** — issues that yield a unique `FLAG{...}`.
 - **`general-vulnerabilities/`** — real weaknesses that don't carry their own flag (they enable the flagged ones or are graded as findings).
 
-## `flags/` — captured (7)
+## `flags/` — captured (8)
 
 | # | Flag | Vulnerability | Severity |
 | --- | --- | --- | --- |
@@ -17,27 +17,27 @@ Write-ups are split into two groups:
 | 04 | `FLAG{xss_st0r3d_1s_n0t_4_f34tur3_w1l}` | Stored XSS → bot cookie theft | Critical |
 | 05 | `FLAG{d3fus3dxml_n3xt_spr1nt_pr0m1s3}` | SSRF via bot → internal config leak (also the XXE/defusedxml objective) | Critical |
 | 06 | `FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}` | Path traversal / arbitrary file read | High |
-| 14 | `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}` | PocketBase admin UI (`/_/`) exposed; leaked creds → `internal_audit` collection | Critical |
+| 07 | `FLAG{r3s3t_t0k3n_w4s_just_md5_lol}` | Weak password reset — predictable `md5(email)` recovery token, account takeover | High |
+| 08 | `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}` | PocketBase admin UI (`/_/`) exposed; leaked creds → `internal_audit` collection | Critical |
 
-## `general-vulnerabilities/` — findings, no unique flag (7)
+## `general-vulnerabilities/` — findings, no unique flag (6)
 
 | # | Vulnerability | Severity |
 | --- | --- | --- |
-| 07 | Weak password reset — predictable `md5(email)` token, account takeover | High |
-| 08 | Open redirect (`/redirect?next=`) | Low–Medium |
-| 09 | Full privilege escalation to `god` (leaked PocketBase admin creds → DB role patch) | Critical |
-| 10 | Pervasive information disclosure (comments, debug headers, docs-internal, backups) | Medium (High aggregate) |
-| 11 | Session management (cookie not HttpOnly, session fixation) | Medium–High |
-| 12 | Open debug/exfil endpoint (`/api/collect`) | Medium |
-| 13 | Weak / leaked JWT signing secret (`42network`) | High |
+| 01 | Open redirect (`/redirect?next=`) | Low–Medium |
+| 02 | Full privilege escalation to `god` (leaked PocketBase admin creds → DB role patch) | Critical |
+| 03 | Pervasive information disclosure (comments, debug headers, docs-internal, backups) | Medium (High aggregate) |
+| 04 | Session management (cookie not HttpOnly, session fixation) | Medium–High |
+| 05 | Open debug/exfil endpoint (`/api/collect`) | Medium |
+| 06 | Weak / leaked JWT signing secret (`42network`) | High |
 
-> Numbers are stable IDs (01–14) kept across the reorganisation so cross-references stay valid; the gap in each folder is expected.
+> Each group is numbered independently from 01. Cross-references name the group explicitly (e.g. "Flag 02" vs "Finding 02") because the two sequences reuse the same numbers.
 
 ## Key chains
 
-- **To `god`:** stored XSS (04) → drive the localhost bot → SSRF read `/internal/config` (05) → leaked PocketBase admin creds → authenticate to PocketBase from the bot → `PATCH role=god` on own record (09). The app's "role not assignable" / "SSO only" checks are app-layer only; the database had no such rule.
-- **Leaked creds, two payoffs:** the `/internal/config` JSON (05) exposes the PocketBase admin password. Relayed to the PocketBase *API* via the bot it escalates roles (09); used against the admin *UI* at `/_/` it opens the database console directly and exposes the `internal_audit` flag (14).
-- **Account takeover:** emails follow `username@student.42.tech`; reset token is `md5(email)` with no validation (07).
+- **To `god`:** stored XSS (Flag 04) → drive the localhost bot → SSRF read `/internal/config` (Flag 05) → leaked PocketBase admin creds → authenticate to PocketBase from the bot → `PATCH role=god` on own record (Finding 02). The app's "role not assignable" / "SSO only" checks are app-layer only; the database had no such rule.
+- **Leaked creds, two payoffs:** the `/internal/config` JSON (Flag 05) exposes the PocketBase admin password. Relayed to the PocketBase *API* via the bot it escalates roles (Finding 02); used against the admin *UI* at `/_/` it opens the database console directly and exposes the `internal_audit` flag (Flag 08).
+- **Account takeover:** emails follow `username@student.42.tech`; reset token is `md5(email)` with no validation, and the recovery code carries the flag (Flag 07).
 
 ## Still open (next session)
 

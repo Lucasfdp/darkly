@@ -1,4 +1,4 @@
-# Finding 13 — Weak / leaked JWT signing secret
+# Finding 06 — Weak / leaked JWT signing secret
 
 **Flag:** none unique (the forgeable token is a building block, and the secret also appears in Flag 05's config leak).
 **Severity:** High
@@ -20,7 +20,7 @@ print((h+b'.'+p+b'.'+sig).decode())
 
 ## Note on exploitability
 
-Forging the token authenticates as any user, but this app re-reads `role` from the database, so a forged `role` claim alone did not escalate (that required Findings 02/09). The forgeable secret still fully compromises any claim the server *does* trust, and is a critical weakness in its own right.
+Forging the token authenticates as any user, but this app re-reads `role` from the database, so a forged `role` claim alone did not escalate (that required Flag 02 (mass-assignment) and Finding 02 (privesc-to-god)). The forgeable secret still fully compromises any claim the server *does* trust, and is a critical weakness in its own right.
 
 ## Remediation
 

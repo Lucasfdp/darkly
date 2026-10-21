@@ -1,7 +1,7 @@
-# Finding 07 — Weak password reset (predictable token + account takeover)
+# Flag 07 — Weak password reset (predictable `md5` token + account takeover)
 
-**Flag:** none observed (vulnerability confirmed; no unique flag string returned).
-**Location:** `POST /reset-password/request` and `POST /reset-password/confirm`.
+**Flag:** `FLAG{r3s3t_t0k3n_w4s_just_md5_lol}`
+**Location:** `POST /reset-password/request` and `POST /reset-password/confirm`; the flag string is carried in the PocketBase password-recovery record (the `md5(email)` recovery code) of each reset user.
 **Severity:** High
 **Class:** Broken authentication — predictable reset token, no validation, no rate limit.
 

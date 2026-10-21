@@ -1,4 +1,4 @@
-# Finding 08 — Open redirect
+# Finding 01 — Open redirect
 
 **Flag:** none observed (vulnerability confirmed; no unique flag string returned).
 **Location:** `GET /redirect?next=` — used by the footer links and the fake "42 SSO / Google" button.

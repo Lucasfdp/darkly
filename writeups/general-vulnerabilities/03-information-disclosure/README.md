@@ -1,4 +1,4 @@
-# Finding 10 — Pervasive information disclosure
+# Finding 03 — Pervasive information disclosure
 
 **Flag:** none unique (these leaks enable the other flags rather than being one).
 **Severity:** Medium (High in aggregate — this is what makes the whole box solvable)
