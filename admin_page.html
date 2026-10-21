@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — 42 Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">42<span class="sidebar-cursor"></span></div>
+    </div>
+
+    
+    <a href="/profile/z4p1cnx47mfy50f" class="sidebar-user">
+      <img src="/static/uploads/default.png" class="sidebar-avatar"
+           onerror="this.src='/static/img/default.png'" alt="">
+      <div style="flex:1;min-width:0;">
+        <div class="sidebar-login">jdoe</div>
+        <div class="sidebar-loc">Wilcity</div>
+      </div>
+    </a>
+    
+
+    <nav class="sidebar-nav">
+      <a href="/"           class="sidebar-nav-item "><span class="nav-icon">⌂</span>Home</a>
+      <a href="/projects"   class="sidebar-nav-item "><span class="nav-icon">◈</span>Projects</a>
+      <a href="/forum"      class="sidebar-nav-item "><span class="nav-icon">◻</span>Forum</a>
+      <a href="/newsletter" class="sidebar-nav-item "><span class="nav-icon">✉</span>Newsletter</a>
+      
+      <a href="/agenda"     class="sidebar-nav-item "><span class="nav-icon">◷</span>Agenda</a>
+      
+      
+      <div class="sidebar-sep"></div>
+      <a href="/staff"      class="sidebar-nav-item "><span class="nav-icon">⚙</span>Staff area</a>
+      
+      
+      <a href="/admin"      class="sidebar-nav-item active"><span class="nav-icon">◆</span>Admin</a>
+      
+    </nav>
+
+    
+    
+    
+    <div class="sidebar-priv">
+      <div class="sidebar-priv-label">Access level</div>
+      <div class="priv-steps">
+        
+        
+        <div class="priv-row done">
+          <div class="priv-dot"></div><span>Visitor</span>
+        </div>
+        
+        
+        <div class="priv-row done">
+          <div class="priv-dot"></div><span>Student</span>
+        </div>
+        
+        
+        <div class="priv-row done">
+          <div class="priv-dot"></div><span>Staff campus</span>
+        </div>
+        
+        
+        <div class="priv-row done">
+          <div class="priv-dot"></div><span>Staff 42Network</span>
+        </div>
+        
+        
+        <div class="priv-row active">
+          <div class="priv-dot"></div><span>Staff 42</span>
+        </div>
+        
+      </div>
+    </div>
+    <div class="sidebar-bottom">
+      <a href="/logout" class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;">Sign out</a>
+    </div>
+    
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      
+<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;">
+  <div>
+    <h1 class="page-title">Admin panel</h1>
+    <p class="page-sub">Darkly project submissions · Staff 42Network+ access required</p>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <span class="badge badge-success">● Platform live</span>
+    <a href="http://localhost:8090/_/" target="_blank" class="btn btn-secondary btn-sm">PocketBase /_/ ↗</a>
+  </div>
+</div>
+
+<div class="alert alert-info" style="font-size:12px;">
+  📌 Staff reminder: submission scores sync nightly from the eval backend. Report anomalies in <span class="mono">#staff-darkly</span>.
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+  
+  <div class="card" style="padding:13px 16px;">
+    <div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;">Submissions</div>
+    <div style="font-family:var(--font-mono);font-size:18px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">5</div>
+  </div>
+  
+  <div class="card" style="padding:13px 16px;">
+    <div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;">Active cadets</div>
+    <div style="font-family:var(--font-mono);font-size:18px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">142</div>
+  </div>
+  
+  <div class="card" style="padding:13px 16px;">
+    <div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;">Evals this week</div>
+    <div style="font-family:var(--font-mono);font-size:18px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">38</div>
+  </div>
+  
+  <div class="card" style="padding:13px 16px;">
+    <div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;">Avg. validation</div>
+    <div style="font-family:var(--font-mono);font-size:18px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">81%</div>
+  </div>
+  
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 280px;gap:16px;">
+
+  <div class="table-wrap">
+    <div class="table-head">
+      Darkly submissions
+      <span class="badge badge-brand">5 entries</span>
+    </div>
+    <table><thead><tr><th>Student</th><th>Score</th><th>Flag</th><th>Gate</th><th>Status</th></tr></thead><tbody>
+      
+      
+      <tr>
+        <td class="td-primary mono">
+          <a href="/profile/02g7nfbtw0k83fu" style="color:var(--brand);">dorian</a>
+        </td>
+        <td class="mono">0%</td>
+        <td class="mono" style="font-size:10px;color:var(--pink);"><span style="color:var(--text-3);">—</span></td>
+        <td>
+          <span style="color:var(--text-3);font-size:11px;">—</span>
+        </td>
+        <td><span class="badge badge-gray">Pending</span></td>
+      </tr>
+      
+      
+      <tr>
+        <td class="td-primary mono">
+          <a href="/profile/0e9p852l6utwaal" style="color:var(--brand);">anne-sophie</a>
+        </td>
+        <td class="mono">0%</td>
+        <td class="mono" style="font-size:10px;color:var(--pink);"><span style="color:var(--text-3);">—</span></td>
+        <td>
+          <span style="color:var(--text-3);font-size:11px;">—</span>
+        </td>
+        <td><span class="badge badge-gray">Pending</span></td>
+      </tr>
+      
+      
+      <tr>
+        <td class="td-primary mono">
+          <a href="/profile/8l16vboi47dmand" style="color:var(--brand);">benjamin</a>
+        </td>
+        <td class="mono">0%</td>
+        <td class="mono" style="font-size:10px;color:var(--pink);"><span style="color:var(--text-3);">—</span></td>
+        <td>
+          <span style="color:var(--text-3);font-size:11px;">—</span>
+        </td>
+        <td><span class="badge badge-gray">Pending</span></td>
+      </tr>
+      
+      
+      <tr>
+        <td class="td-primary mono">
+          <a href="/profile/z4p1cnx47mfy50f" style="color:var(--brand);">jdoe</a>
+        </td>
+        <td class="mono">0%</td>
+        <td class="mono" style="font-size:10px;color:var(--pink);">FLAG{md5_1s_4_n4m3pl4t3_n0t_4_l0ck}</td>
+        <td>
+          
+            <span class="badge badge-blue" style="font-size:9px;">L1 Student</span>
+          
+        </td>
+        <td><span class="badge badge-gray">Pending</span></td>
+      </tr>
+      
+      
+      <tr>
+        <td class="td-primary mono">
+          <a href="/profile/sf6wtjycbyev4ah" style="color:var(--brand);">thanos</a>
+        </td>
+        <td class="mono">0%</td>
+        <td class="mono" style="font-size:10px;color:var(--pink);"><span style="color:var(--text-3);">—</span></td>
+        <td>
+          <span style="color:var(--text-3);font-size:11px;">—</span>
+        </td>
+        <td><span class="badge badge-gray">Pending</span></td>
+      </tr>
+      
+      
+      <tr>
+        <td class="td-primary mono" style="color:var(--text-3);">bmartin</td>
+        <td class="mono" style="color:var(--text-3);">—</td>
+        <td class="mono" style="font-size:10px;color:var(--text-3);">FLAG{md5_1s_4_n4m3pl4t3_n0t_4_l0ck}</td>
+        <td><span class="badge badge-gray" style="font-size:9px;">L1</span></td>
+        <td><span class="badge badge-gray">Pending</span></td>
+      </tr>
+      
+      <tr>
+        <td class="td-primary mono" style="color:var(--text-3);">asmith</td>
+        <td class="mono" style="color:var(--text-3);">—</td>
+        <td class="mono" style="font-size:10px;color:var(--text-3);">—</td>
+        <td><span class="badge badge-gray" style="font-size:9px;">—</span></td>
+        <td><span class="badge badge-gray">Pending</span></td>
+      </tr>
+      
+    </tbody></table>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <div class="card" style="padding:14px 18px;">
+      <div class="card-title" style="margin-bottom:12px;">📋 Recent eval activity</div>
+      
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--pink);">sophie</span>
+          <span style="font-size:9px;color:var(--text-3);">12m ago</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-3);">validated 3 submissions</div>
+      </div>
+      
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--pink);">wil</span>
+          <span style="font-size:9px;color:var(--text-3);">1h ago</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-3);">re-opened a correction</div>
+      </div>
+      
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--pink);">emilie</span>
+          <span style="font-size:9px;color:var(--text-3);">3h ago</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-3);">flagged a submission for review</div>
+      </div>
+      
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--pink);">dorian</span>
+          <span style="font-size:9px;color:var(--text-3);">yesterday</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-3);">published darkly subject v3</div>
+      </div>
+      
+    </div>
+
+    <div class="card" style="padding:14px 18px;">
+      <div class="card-title" style="margin-bottom:10px;">📊 Campus stats</div>
+      
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">Active cadets</span>
+        <span style="font-family:var(--font-mono);color:var(--yellow);font-weight:700;">142</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">Projects open</span>
+        <span style="font-family:var(--font-mono);color:var(--yellow);font-weight:700;">17</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">Evals this week</span>
+        <span style="font-family:var(--font-mono);color:var(--yellow);font-weight:700;">38</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">Avg. validation</span>
+        <span style="font-family:var(--font-mono);color:var(--yellow);font-weight:700;">81%</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">Pending corrections</span>
+        <span style="font-family:var(--font-mono);color:var(--yellow);font-weight:700;">7</span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- INTERNAL NOTE: if you can read this, congrats on gate 3. one more to go. — sophie -->
+<!-- pb admin: http://localhost:8090/_/ — ask wil for the credentials. or don't ask. -->
+
+    </div>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;display:flex;align-items:center;justify-content:center;gap:0;background:transparent;">
+      <a href="/redirect?next=https://42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">42.tech</a>
+      <a href="/redirect?next=https://code.42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Intra</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Cookies policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Privacy policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Terms of use</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;text-decoration:none;">Legal mentions</a>
+    </footer>
+  </div>
+
+</div>
+<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress.
+-->
+<script src="/static/js/console_eggs.js"></script>
+
+</body>
+</html>
