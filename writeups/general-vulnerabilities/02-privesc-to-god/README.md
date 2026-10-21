@@ -15,6 +15,10 @@ The app blocks self-assigning `staff`/`god` (`403 role not assignable`; "Staff a
    `PATCH http://127.0.0.1:8090/api/collections/users/records/<id>  {"role":"god"}`.
 4. Re-requesting `/staff` now shows role `god`; `/admin` opens.
 
+## Note — the real gate is a `level` field (DB-only)
+
+Reaching `god` opens `/admin` but mints no new flag. The admin "Gate" column and the `Staff campus < Staff 42Network < Staff 42` tiers are driven by a numeric `level` field on the user record (jdoe `1.42`, sophie `42`, anne-sophie `-42`). `level` is **not** in `/api/docs-internal`'s `writable_fields`, so the app rejects it — but like `role` it is writable directly in PocketBase. Setting `{"role":"god","level":42}` reaches the top tier and still only re-exposes existing flags, confirming no distinct `staff`/`god` page reward exists in this build.
+
 ## Impact
 
 Complete compromise. An attacker reaches the highest role and full database control (read/modify every record), defeating the app's role gating entirely because the data layer trusts anyone with the (leaked) admin password.

